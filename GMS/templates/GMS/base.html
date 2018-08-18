@@ -1,0 +1,32 @@
+{% load static %}
+<html>
+    <head>
+        <title>Grampanchayat Management System</title>
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/GMS.css' %}">
+    </head>
+   <body>
+    <div class="page-header">
+        <h1><a href="/">GMS</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+                        {% for GMS in GMS %}
+                <div class="GMS">
+                    <div class="date">
+                        <p>published: {{ GMS.published_date }}</p>
+                    </div>
+                    <h1><a href="">{{ GMS.title }}</a></h1>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

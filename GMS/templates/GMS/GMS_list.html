@@ -1,0 +1,13 @@
+{% extends 'GMS/base.html' %}
+{% block content %}
+            {% for GMS in GMS %}
+                <div class="GMS">
+                    <div class="date">
+                        <p>published: {{ GMS.published_date }}</p>
+                    </div>
+                    <h1><a href="{% url 'GMS_detail' pk=GMS.pk %}">{{ GMS.title }}</a></h1>
+                    <p>{{ GMS.text|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
+{% endblock %}            
+       
